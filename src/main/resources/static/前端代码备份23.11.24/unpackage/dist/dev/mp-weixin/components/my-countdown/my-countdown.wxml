@@ -1,0 +1,1 @@
+<view><u-button vue-id="648cc202-1" custom-style="{{buttonStyle}}" size="mini" disabled="{{count>0}}" data-event-opts="{{[['^click',[['clickButton']]]]}}" bind:click="__e" bind:__l="__l" vue-slots="{{['default']}}">{{''+(count>0?count:showText)+''}}</u-button></view>

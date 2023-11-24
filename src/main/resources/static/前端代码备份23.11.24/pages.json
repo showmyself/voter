@@ -1,0 +1,133 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项为应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"name":"Visit",
+			"path": "pages/Visit/Visit",
+			"style": {
+				"navigationStyle": "custom",//自定义导航栏
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"name":"Self",
+			"path": "pages/Self/Self",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+	    {
+			"name":"Login",
+            "path" : "pages/Self/Login/Login",
+            "style" :
+            {
+				"navigationStyle": "custom"
+            }
+            
+        },
+	    {
+			"name":"Register",
+            "path" : "pages/Self/Register/Register",
+            "style" : 
+            {
+				"navigationStyle": "custom"
+            }
+            
+        },
+		{
+			"name":"ForgetPwd",
+            "path" : "pages/Self/ForgetPwd/ForgetPwd",
+            "style" :                                                                                    
+            {
+				"navigationStyle": "custom"
+            }
+        }
+        ,{
+			"name":"SelfDetails",
+            "path" : "pages/Self/SelfDetails/SelfDetails",
+            "style" :                                                                                    
+            {
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+			"name":"SelfPosts",
+            "path" : "pages/Self/SelfPosts/SelfPosts",
+            "style" :                                                                                    
+            {
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+			"name":"SelfCollects",
+            "path" : "pages/Self/SelfCollects/SelfCollects",
+            "style" :                                                                                    
+            {
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+			"name":"SelfComments",
+            "path" : "pages/Self/SelfComments/SelfComments",
+            "style" :                                                                                    
+            {
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+			"name":"EditPost",
+            "path" : "pages/Self/EditPost/EditPost",
+            "style" :                                                                                    
+            {
+				"navigationStyle": "custom"
+            }
+        }
+        ,{
+			"name":"PostDetails",
+            "path" : "pages/Visit/PostDetails/PostDetails",
+            "style" :                                                                                    
+            {
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+			"name":"SameSeriesPosts",
+            "path" : "pages/Visit/SameSeriesPosts/SameSeriesPosts",
+            "style" :                                                                                    
+            {
+				"navigationStyle": "custom"
+            }
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uView",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+	    "color": "#909399",
+	    // "selectedColor": "#303133",
+	    "selectedColor": "#2B85E4",
+	    "borderStyle": "black",
+	    "backgroundColor": "#ffffff",
+	    "list": [{
+	        "pagePath": "pages/Visit/Visit",
+	        "iconPath": "static/浏览.png",
+	        "selectedIconPath": "static/浏览-激活.png",
+	        "text": "浏览"
+	    },{
+	        "pagePath": "pages/Self/Self",
+	        "iconPath": "static/用户.png",
+	        "selectedIconPath": "static/用户-激活.png",
+	        "text": "个人"
+	    }]
+	}
+}

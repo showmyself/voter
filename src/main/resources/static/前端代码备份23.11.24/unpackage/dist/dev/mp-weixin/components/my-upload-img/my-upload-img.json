@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "u-upload": "/uview-ui/components/u-upload/u-upload",
+    "u-line-progress": "/uview-ui/components/u-line-progress/u-line-progress"
+  },
+  "component": true
+}

@@ -1,0 +1,106 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.my-page-root.data-v-bf8d8ef4 {
+  font-size: 25rpx;
+}
+.my-center-one.data-v-bf8d8ef4, .menu.data-v-bf8d8ef4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.my-center-vertical-one.data-v-bf8d8ef4 {
+  display: flex;
+  align-items: center;
+}
+.my-center-horizontal-one.data-v-bf8d8ef4 {
+  display: flex;
+  justify-content: center;
+}
+.my-at-center-horizontal-block.data-v-bf8d8ef4, .avatar-area.data-v-bf8d8ef4 {
+  margin: 0 auto;
+}
+.my-bfc.data-v-bf8d8ef4::before, .avatar-area.data-v-bf8d8ef4::before {
+  content: '';
+  display: table;
+}
+.my-bfc.data-v-bf8d8ef4::after, .avatar-area.data-v-bf8d8ef4::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.my-flex-usual.data-v-bf8d8ef4 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.my-absolute-from.data-v-bf8d8ef4 {
+  position: relative;
+}
+.my-font-outline.data-v-bf8d8ef4 {
+  text-shadow: -1px 1px 0 #222,1px 1px 0 #222,1px -1px 0 #222,-1px -1px 0 #222;
+}
+button.data-v-bf8d8ef4 {
+  background-color: slategray;
+  color: whitesmoke;
+  height: 80%;
+  font-size: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+._a.data-v-bf8d8ef4 {
+  color: #3A2F0B;
+  font-size: 80%;
+  text-decoration: underline;
+}
+.mark.data-v-bf8d8ef4 {
+  font-size: 80%;
+  color: #886A08;
+}
+.avatar-area.data-v-bf8d8ef4 {
+  width: 95%;
+  height: 320rpx;
+  margin-top: 20rpx;
+  background-color: #ddd;
+  border-radius: 10rpx;
+  border-style: solid;
+  border-color: skyblue;
+  border-width: 10rpx;
+  border-color: #999;
+}
+.login-button.data-v-bf8d8ef4 {
+  font-size: 90%;
+  font-weight: 600;
+}
+.username.data-v-bf8d8ef4 {
+  color: cornflowerblue;
+  font-size: 110%;
+  font-weight: 600;
+  height: 50rpx;
+}
+.register-time.data-v-bf8d8ef4 {
+  font-size: 80%;
+  margin-left: 3%;
+  color: gray;
+}
+.menu.data-v-bf8d8ef4 {
+  height: 60rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  background-color: #eee;
+}
+.icon.data-v-bf8d8ef4 {
+  margin-right: 2%;
+}
+.menu-gap.data-v-bf8d8ef4 {
+  height: 3rpx;
+}
+.option.data-v-bf8d8ef4 {
+  font-size: 110%;
+  font-weight: 600;
+  color: #666;
+}
+

@@ -1,0 +1,197 @@
+。项目模板基于：https://gitee.com/ffbk/u-view_default ，
+个人做了大量修改，工程基本框架结构很清楚，容易看懂（前提需了解Vue.use和Vue.prototype）
+
+。此uview版本可在目录uview-ui/package.json中查看，为1.8.3，非2代版本，
+更高版本道理类似以后再了解学习即可，现在不急够用
+
+。uview各种UI和js辅助参考网址：
+https://xuqu.gitee.io/components/intro.html
+https://v1.uviewui.com/components/intro.html
+
+。分平台做不同处理：https://blog.csdn.net/Mrs_chens/article/details/108468212
+
+。关于vuex的使用：
+任意组件使用this.vuex.set(xxx,value)即可新增或改变
+任意组件中使用this.vuex.get(xxx)即可获取
+如果把某vuex变量名写到my-constant.js里的localKeys列表中，
+则会自动将此vuex变量同步到本地storage
+关于如何实现，可参考源码my-vuex.js
+
+。请求接收的通用处理过程 设置在my-http.js中，容易看懂并修改
+调用api统一放在my-api.js中，容易看懂并修改
+读取的常量统一放在my-constant.js中
+
+。全局工具：
+其实Vue.use对同一个插件仅执行一次（额外代入不同的参数也不会执行多次）
+我为了实现每个vue内的方便调用，利用Vue.use给Vue.prototype赋值了各种数据，每个vm实例都能访问到
+然后任意组件可以使用this.util.xxx来执行工具函数
+
+。解决跨域和修改h5运行端口
+manifest.json中（使用其他软件打开）：
+"h5" : {
+	...
+	"devServer": {
+		"port": 8080,//可指定运行到h5时的端口
+		"disableHostCheck": true,
+		"proxy": {
+			"/": {//相关细节看个人总结或个人已实践的项目
+				"target": "http://localhost:9000",//指定服务端地址
+				"changeOrigin": true,
+				"secure": false
+			}
+		}
+	}
+}
+然后还要在my-http.js里，baseUrl设置为""
+新：H5端和小程序端要区别对待，小程序端需要给完整的baseUrl，详细参考相关代码
+
+。关于路由的使用：
+新：在下述这些的基础上，我把路由相关做了一层封装，封装到了my-utils.js里，引用了pages.json，需在pages.json里给每个路由多配一个name
+每个新页面需要注册到pages.json中，路径填完整
+任意组件中可使用比如uni.$u.route('pages/Login/Login',{...})来实现页面跳转（带参），
+另一个页面可通过周期函数onLoad获取参数（上述route方法的参数可以是对象形式，具体网搜）
+注意注册到tarbar的页面，无法使用上述方法进行跳转，需要使用比如
+uni.switchTab({url:"pages/Search/Search"})进行跳转，这种无法给页面传参，可以间接使用vuex来传参
+路由返回使用比如：this.$u.route ({ type: 'navigateBack', delta: 1 })
+重定向使用比如：this.$u.route ({ type: 'redirectTo', url: 'pages/Login/Login' })
+关于路由route详细可参考：
+https://xuqu.gitee.io/js/route.html
+
+。页面中使用的其他地方的组件不需要注册也不需引用路径，可直接用，不过组件文件位置要符合easycom规范
+
+。如果运行到微信小程序失败，则尝试在项目的manifest.json里，微信小程序AppId赋值为空
+
+。简单提示可使用this.$u.toast('...')
+
+。关于微信开发工具的真机调试：
+微信开发者工具，右上角点击测试号，按所显示步骤进行，貌似需要https，所以暂时行不通
+
+。关于样式，经过实践得出以下经验：
+静态型样式一般用class做：{
+全局class写在my-class.scss里，已被引入到App.vue中供全局使用
+局部class写在每个vue的scss里，根据实践发现命名class并不麻烦，命名也只在单个vue作用范围内
+局部class可继承全局class，使用@extend，且需引入全局scss，详细可参考Self.vue
+}
+需根据参数变化的样式用style+js做：{
+为了最大概率保持微信小程序和H5端都正确有效：
+赋值style尽量使用:style="[vue变量]"（中括号放到此处是必要的）
+该vue变量一般就对应一个描述样式的js对象，可自定义各属性的逻辑处理
+如果有一些供全局使用的根据参数变化的样式，写在my-style.js里，每个vue里可通过this.st.xxx(...)来获取使用
+}
+另外一些个人开发经验：{
+如果一元素仅用来布局或者包裹下一元素，也不方便命名，那么我推荐直接使用style，这类元素我称之为 "布局元素、包裹元素"
+如果一元素针对一数据、一整体结构这种，命名也方便，那么我推荐使用class，
+另外不推荐在class里指定元素自身所在的位置，比如margin属性，class仅用来描述它自身的性质最好，不要描述它所在页面的位置
+对于设置元素所在位置，尽量交给布局元素或包裹元素来做，或者也可以交给本元素的style，这样也方便调整
+新：
+多个元素样式有一致的地方则能复用就复用，避免重复，方便后续调整和维护，可使用class
+如果只有该元素有某种样式，则把该样式直接写在style里，不用再单独写class，因为不复用没必要，可避免取class名和页面上下切换，能提高开发效率
+最终即 class="通用样式 或 因共有提取的样式" style="仅此元素独有的样式"
+本项目的class和style混用比较乱，但下次如果不是开发非正式项目，记得使用上述方式：用不用class决定于该元素是否含有公共样式
+}
+
+。关于布局的常用方式：
+/使用自己的类名my-center...居中方案（详细参考my-class.js），但注意一般在只有一个子元素时，能保证预期效果
+/合理调整width、height、margin-top、margin-right，注意单位问题（参考上文）
+/使用float:right能够方便让元素排到父元素下的最右，如果发现父元素高度坍塌则添加class=my-bfc
+/想让块元素不占用一行，使用display:inline-block
+/某些情况下，inline-block可能会缩短区域的宽度导致显示不符预期，这时其实可以主动调整inline-block的width
+/如果发现使用inline-block时左右元素没有对齐，可以尝试使用display: inline-table，如果还是失败则可以考虑flex布局
+/若使用flex布局阵列型UI，如果要控制每一行的元素个数或元素宽度比，给每个子元素view添加百分比型width
+/接上注意，如果给子元素添加的是绝对单位，则元素在窗口宽度变化时会浮动到下一行或上一行，而如果是百分比单位则不会浮动，需酌情考虑
+/个人不再推荐使用ui框架提供的的布局分割行列，比如u-row、u-col，直接flex加百分比width也能解决问题且更通用，若后者无效再使用前者
+/做页面时，为了开发速度，推荐顺序：结构->逻辑->样式，结构仅html元素，暂时不需要加多余的样式和布局，等逻辑做完后，再详细设定每个元素的位置和样式
+/新：使用 flex:数字 也可以控制元素在主轴空白空间中的占比，与赋值百分比width有类似之处，但也有区别，详细网搜或参考其他个人笔记
+
+。暂时自定义了i18n的处理，详细参考my-i18n.js
+
+。uniapp
+书写有效空格的方式：（实测有时还是无效）
+<text space="ensp">{{"      "}}</text>
+书写空行的方式：
+<br/>在微信小程序里无效，
+推荐将换行后的内容使用<view>包裹，然后给予margin-top样式
+如果是想让下方有间隙，这时没法用<view>包裹，其实可以让该间隙所有者的高度调高
+或者插入比如<view style="height:20rpx"/>或者<view style="margin-top:20rpx"/>
+书写\n换行方式：
+style:   white-space: pre;
+
+。显示本地图标，比如：
+<image mode="widthFix" style="width: 25rpx" :src="require('@/static/统计图.png')"/>
+显示普通图片比如：
+<image v-if="post.picSrc" mode="aspectFit" style="max-width: 95%" :src="post.picSrc"/>
+
+如果style需要动态改变，那么：（其他方式容易失效或者移动端、H5端不一致）
+<image mode="widthFix" :style="[styles.icon]" :src="require('@/static/统计图.png')"/>
+其中styles.icon是vue data里描述样式的js对象
+图标收集网站：https://www.iconfont.cn/search/index?searchType=icon&q=&page=1&fromCollection=1&fills=&tag=
+
+
+。关于颜色，选取合适的颜色可参考网址：https://htmlcolorcodes.com/zh/yanse-xuanze-qi/
+
+。关于单位：
+每个页面的根元素设置字体大小为25rpx（目前推荐rpx而不是upx）
+然后每个页面其余所有字体大小以百分数赋值
+每个页面内设置的width均使用百分数，margin水平方向使用百分数
+每个页面内设置的height均使用rpx，margin垂直方向使用rpx
+（本质是，有滑动条方向可使用绝对数，无滑动条方向使用百分比）
+
+
+。商用程序的页面UI其实是有专门的人员来做，自己做UI肯定没法显得现代化的美观
+总之做到相对美观就行，丑也有丑的道理，毕竟我又不是UI设计师
+总之要做到的是根据设计要求用代码还原页面，而不是自己设计页面美观
+
+。对于按钮，u-button的自定义样式最好使用:custom-style，否则可能不兼容微信小程序，比如
+<u-button shape="square" size="mini" :custom-style="[styles.loginButton]" @click="toLogin()">登录</u-button>
+实测发现，如果不是为了快捷使用的话，简单元素比如 button、input、a，更推荐使用html原生+样式，能更灵活地调整外观
+注意
+。使用原生button时，width需要一个绝对单位rpx，使用%可能会出问题
+。尽量使用image而不是img，后者在H5和微信端表现不一致
+
+。微信开发工具如果发现与H5不一致，应点击上方的重新编译试一试，之前有被坑过
+
+。如果是几个页面共有，而不是所有页面共有，可以单独抽取出js或scss到一个文件里，然后引入
+对于js的导出和引入，稍不注意就undefined，具体可以参考pages/Self/_common.js
+
+。目前用uniapp做项目有一些缺陷，
+比如顶级组件App.vue不能渲染视图，无法让每个页面共享同一个组件或拥有一些公有特性，
+也没法通过js动态创建组件（需要先声明组件，再用js、ref控制）
+
+。父组件调用子组件的函数：
+子组件有func函数，给子组件添加ref="xxx"
+然后父组件内使用比如：this.$refs.xxx.func()
+
+。uview1.x目前仅提供了上传图片的组件，上传文件的没有，以后要用的话需要网搜学习
+
+。之所以vue使用事件方式传递函数，是因为如果以参数形式参数函数，函数里的this指针可能会发生变化
+如果一定要用参数形式传函数且有用到this的话，解决办法是暂时把变量放到全局，然后从全局中取
+
+。列表追加推荐使用比如 this.posts=[...this.posts,...data.posts]，而使用push可能会导致页面渲染不成功
+
+。不能使用node_modules，因为那些插件专门用于h5平台，就很可能有不兼容
+需要专门 到uniapp提供的插件平台 进行安装使用
+uview没有的东西可以去搜索uniapp插件，xbuilder上方菜单栏，工具->插件安装->前往插件市场安装
+如果找不到，则网搜 uniapp 想要的东西
+比如uview里没有统计图，那么网搜 uniapp 统计图，进而发现了ucharts这款插件，到插件市场安装后，发现项目目录里多了个uni_modules目录
+这样的话就能在项目代码里直接引入使用，具体使用方式参考官网示例
+
+。目前是"点击查看更多+设定起点页"，但实测发现有问题，当删除列表某个元素，再向后查看更多时，就会出现数据问题且不好处理
+以后自己做的话就不做翻页型了，就做 "点击查看更多 + 设定查找起点位"，后端api参数直接是start offset注入到sql，而不是currentPage，pageSize
+ ，上述方式能更灵活处理各种情况。本项目因为牵涉较多，暂时就不改了（为了避免数据问题，暂时处理方式为 删除元素后会直接翻到第一页）
+ 
+ 。其他细节：
+ -关于路由返回到的页面刷新，可以参考my-util.js里的routeBack函数（新：使用onShow()周期函数是可以的）
+ -项目的导航栏已自定义，参考pages.json和my-nav-bar组件
+ -tarbar栏的内容可以使用代码改变，可以参考比如my-util.js里的setTabBarText
+ 
+ 。上传图片或文件后，却没用到，为了解决文件冗余，方法有：
+ 在取消、重新上传、页面返回时，调用删除api删除上一次上传
+ 但上述并不保险，最好的方式其实应该是：
+ 服务端对上传的新文件定时10min，如果10min内没有保存该文件相关的数据单，则自动删除它并且给与前端提示（如果前端还在新增或编辑页面的话）
+ 目前没有做上述工作，日后记住该方式
+ 
+ 。本项目的基础系统比较完善且明白，但还缺了一个模块就是实时接收服务端消息并作出处理
+ 这个得用到ws协议，我在file_sharer项目里有实践过，等之后的typescript+vue3时再实践
+ 
+ 。目前项目还有一些细节问题，但这暂时不重要了，以后有必要再修补
+ 

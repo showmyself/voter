@@ -1,0 +1,147 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.my-page-root.data-v-4e6c6633 {
+  font-size: 25rpx;
+}
+.my-center-one.data-v-4e6c6633, .form-title.data-v-4e6c6633 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.my-center-vertical-one.data-v-4e6c6633 {
+  display: flex;
+  align-items: center;
+}
+.my-center-horizontal-one.data-v-4e6c6633 {
+  display: flex;
+  justify-content: center;
+}
+.my-at-center-horizontal-block.data-v-4e6c6633, .form-page.data-v-4e6c6633, .form-area.data-v-4e6c6633, .pwd-input.data-v-4e6c6633 {
+  margin: 0 auto;
+}
+.my-bfc.data-v-4e6c6633::before {
+  content: '';
+  display: table;
+}
+.my-bfc.data-v-4e6c6633::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.my-flex-usual.data-v-4e6c6633 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.my-absolute-from.data-v-4e6c6633 {
+  position: relative;
+}
+.my-font-outline.data-v-4e6c6633 {
+  text-shadow: -1px 1px 0 #222,1px 1px 0 #222,1px -1px 0 #222,-1px -1px 0 #222;
+}
+button.data-v-4e6c6633 {
+  background-color: slategray;
+  color: whitesmoke;
+  height: 80%;
+  font-size: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+._a.data-v-4e6c6633 {
+  color: #3A2F0B;
+  font-size: 80%;
+  text-decoration: underline;
+}
+.mark.data-v-4e6c6633 {
+  font-size: 80%;
+  color: #886A08;
+}
+.form-page.data-v-4e6c6633 {
+  width: 90%;
+}
+.form-title.data-v-4e6c6633 {
+  font-size: 130%;
+  font-weight: 600;
+  color: cornflowerblue;
+}
+.form-area.data-v-4e6c6633 {
+  width: 80%;
+}
+.form-item.data-v-4e6c6633 {
+  margin-top: 10%;
+}
+.lable.data-v-4e6c6633 {
+  font-size: 100%;
+  color: dimgray;
+}
+.input.data-v-4e6c6633 {
+  background-color: #ddd;
+  height: 40rpx;
+  border-radius: 10rpx;
+  -webkit-user-select: all;
+          user-select: all;
+}
+.link.data-v-4e6c6633 {
+  font-size: 90%;
+  color: skyblue;
+  text-decoration: underline;
+}
+.confirm-button.data-v-4e6c6633 {
+  width: 150rpx;
+  font-size: 90%;
+  font-weight: 500;
+}
+.upload-btn.data-v-4e6c6633 {
+  color: steelblue;
+  font-size: 90%;
+}
+.icon-link.data-v-4e6c6633 {
+  font-size: 50%;
+  font-weight: 600;
+  color: #999;
+}
+.input-icon-src.data-v-4e6c6633 {
+  border-radius: 0rpx;
+  color: skyblue;
+  height: 15rpx;
+  text-decoration: underline;
+}
+.select-btn.data-v-4e6c6633 {
+  font-size: 70%;
+  color: dimgray;
+  font-weight: 600;
+  border-width: 0px;
+}
+.value.data-v-4e6c6633 {
+  margin-left: 5%;
+  font-size: 60%;
+  font-weight: 400;
+}
+.canel-edit-link.data-v-4e6c6633 {
+  font-size: 70%;
+  color: #888;
+  font-weight: 600;
+}
+.change-pwd-btn.data-v-4e6c6633 {
+  font-size: 70%;
+  color: #aaa;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.pwd-label.data-v-4e6c6633 {
+  font-size: 60%;
+  margin-left: 10%;
+  font-weight: 600;
+  border-radius: 20%;
+}
+.pwd-input.data-v-4e6c6633 {
+  width: 80%;
+  height: 35rpx;
+  background-color: lightgray;
+  border-radius: 10rpx;
+}
+

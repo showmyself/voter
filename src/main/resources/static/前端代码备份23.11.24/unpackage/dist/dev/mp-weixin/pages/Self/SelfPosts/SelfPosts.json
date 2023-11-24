@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "my-nav-bar": "/components/my-nav-bar/my-nav-bar",
+    "my-empty": "/components/my-empty/my-empty",
+    "my-post-face": "/components/my-post-face/my-post-face",
+    "my-pagination": "/components/my-pagination/my-pagination",
+    "u-modal": "/uview-ui/components/u-modal/u-modal"
+  }
+}

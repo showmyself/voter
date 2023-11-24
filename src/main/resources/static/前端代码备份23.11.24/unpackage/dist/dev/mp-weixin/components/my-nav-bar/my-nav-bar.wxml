@@ -1,0 +1,1 @@
+<view class="data-v-4acbd6c4"><u-navbar vue-id="0eaf82c2-1" title="{{title}}" title-size="{{28}}" title-color="white" is-back="{{!removeBack}}" back-icon-size="{{25}}" back-icon-color="white" custom-back="{{routeBack}}" background="{{background}}" class="data-v-4acbd6c4" bind:__l="__l"></u-navbar></view>

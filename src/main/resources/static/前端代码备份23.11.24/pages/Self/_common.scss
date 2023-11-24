@@ -1,0 +1,38 @@
+//部分页面共用的scss放在这些页面的上一级目录里
+.form-page{
+	@extend .my-at-center-horizontal-block;
+	width:90%
+}
+.form-title{
+	@extend .my-center-one;
+	font-size: 130%;
+	font-weight: 600;
+	color: cornflowerblue;
+}
+.form-area{
+	@extend .my-at-center-horizontal-block;
+	width: 80%;
+}
+.form-item{
+	margin-top: 10%;
+}
+.lable{
+	font-size:100%;
+	color:dimgray
+}
+.input{
+	background-color: #ddd;
+	height: 40rpx;
+	border-radius: 10rpx;
+	user-select: all;
+}
+.link{
+	font-size: 90%;
+	color: skyblue;
+	text-decoration: underline;
+}
+.confirm-button{
+	width: 150rpx;
+	font-size: 90%;
+	font-weight: 500;
+}

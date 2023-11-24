@@ -1,0 +1,1 @@
+<view class="my-center-one data-v-9bc418f8" style="margin-top:20rpx;margin-bottom:20rpx;"><u-empty vue-id="dcbe03fc-1" text="{{text}}" mode="{{getIconModeByType}}" class="data-v-9bc418f8" bind:__l="__l"></u-empty></view>

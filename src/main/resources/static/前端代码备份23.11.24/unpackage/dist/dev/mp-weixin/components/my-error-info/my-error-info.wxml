@@ -1,0 +1,1 @@
+<block wx:if="{{info?true:false}}"><view class="data-v-1ef91624"><text class="error-info data-v-1ef91624">{{info?"*"+info:""}}</text></view></block>

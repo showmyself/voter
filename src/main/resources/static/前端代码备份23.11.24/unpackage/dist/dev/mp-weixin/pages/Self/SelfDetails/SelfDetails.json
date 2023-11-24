@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "my-nav-bar": "/components/my-nav-bar/my-nav-bar",
+    "u-avatar": "/uview-ui/components/u-avatar/u-avatar",
+    "my-upload-img": "/components/my-upload-img/my-upload-img",
+    "u-select": "/uview-ui/components/u-select/u-select",
+    "u-modal": "/uview-ui/components/u-modal/u-modal"
+  }
+}

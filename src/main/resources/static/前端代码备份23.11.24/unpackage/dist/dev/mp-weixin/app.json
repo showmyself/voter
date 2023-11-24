@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/Visit/Visit",
+    "pages/Self/Self",
+    "pages/Self/Login/Login",
+    "pages/Self/Register/Register",
+    "pages/Self/ForgetPwd/ForgetPwd",
+    "pages/Self/SelfDetails/SelfDetails",
+    "pages/Self/SelfPosts/SelfPosts",
+    "pages/Self/SelfCollects/SelfCollects",
+    "pages/Self/SelfComments/SelfComments",
+    "pages/Self/EditPost/EditPost",
+    "pages/Visit/PostDetails/PostDetails",
+    "pages/Visit/SameSeriesPosts/SameSeriesPosts"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uView",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#909399",
+    "selectedColor": "#2B85E4",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/Visit/Visit",
+        "iconPath": "static/浏览.png",
+        "selectedIconPath": "static/浏览-激活.png",
+        "text": "浏览"
+      },
+      {
+        "pagePath": "pages/Self/Self",
+        "iconPath": "static/用户.png",
+        "selectedIconPath": "static/用户-激活.png",
+        "text": "个人"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

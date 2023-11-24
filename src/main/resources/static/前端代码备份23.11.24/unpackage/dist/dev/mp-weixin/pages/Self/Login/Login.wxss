@@ -1,0 +1,103 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.my-page-root {
+  font-size: 25rpx;
+}
+.my-center-one, .form-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.my-center-vertical-one {
+  display: flex;
+  align-items: center;
+}
+.my-center-horizontal-one {
+  display: flex;
+  justify-content: center;
+}
+.my-at-center-horizontal-block, .form-page, .form-area {
+  margin: 0 auto;
+}
+.my-bfc::before {
+  content: '';
+  display: table;
+}
+.my-bfc::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.my-flex-usual {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.my-absolute-from {
+  position: relative;
+}
+.my-font-outline {
+  text-shadow: -1px 1px 0 #222,1px 1px 0 #222,1px -1px 0 #222,-1px -1px 0 #222;
+}
+button {
+  background-color: slategray;
+  color: whitesmoke;
+  height: 80%;
+  font-size: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+._a {
+  color: #3A2F0B;
+  font-size: 80%;
+  text-decoration: underline;
+}
+.mark {
+  font-size: 80%;
+  color: #886A08;
+}
+.form-page {
+  width: 90%;
+}
+.form-title {
+  font-size: 130%;
+  font-weight: 600;
+  color: cornflowerblue;
+}
+.form-area {
+  width: 80%;
+}
+.form-item {
+  margin-top: 10%;
+}
+.lable {
+  font-size: 100%;
+  color: dimgray;
+}
+.input {
+  background-color: #ddd;
+  height: 40rpx;
+  border-radius: 10rpx;
+  -webkit-user-select: all;
+          user-select: all;
+}
+.link {
+  font-size: 90%;
+  color: skyblue;
+  text-decoration: underline;
+}
+.confirm-button {
+  width: 150rpx;
+  font-size: 90%;
+  font-weight: 500;
+}
+.captcha {
+  height: 50rpx;
+  border: 1px solid;
+  border-color: dimgray;
+}
+

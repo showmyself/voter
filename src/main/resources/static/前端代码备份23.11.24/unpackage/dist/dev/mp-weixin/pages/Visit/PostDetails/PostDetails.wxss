@@ -1,0 +1,103 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.title.data-v-55c54db0 {
+  color: royalblue;
+  font-weight: 650;
+  font-size: 120%;
+}
+.content.data-v-55c54db0 {
+  color: dimgray;
+  font-weight: 600;
+  font-size: 80%;
+  white-space: pre;
+}
+.number.data-v-55c54db0 {
+  color: black;
+  font-weight: 400;
+  font-size: 60%;
+}
+.series-label.data-v-55c54db0 {
+  color: black;
+  font-weight: 400;
+  font-size: 60%;
+}
+.series-btn.data-v-55c54db0 {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 80%;
+  text-decoration: underline;
+}
+.view-count.data-v-55c54db0 {
+  color: black;
+  font-weight: 400;
+  font-size: 60%;
+}
+.detail-label.data-v-55c54db0 {
+  color: black;
+  font-weight: 300;
+  font-size: 70%;
+}
+.detail-value.data-v-55c54db0 {
+  font-weight: 500;
+  font-size: 70%;
+}
+.not-finished.data-v-55c54db0 {
+  color: seagreen;
+  font-weight: 600;
+  font-size: 80%;
+}
+.finished.data-v-55c54db0 {
+  color: indianred;
+  font-weight: 600;
+  font-size: 80%;
+}
+.comment-btn.data-v-55c54db0 {
+  font-weight: 550;
+  font-size: 90%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.collect-btn.data-v-55c54db0 {
+  font-weight: 500;
+  font-size: 70%;
+  text-decoration: underline;
+}
+.delete-btn.data-v-55c54db0 {
+  color: red;
+  font-weight: 500;
+  font-size: 70%;
+  text-decoration: underline;
+}
+.vote-desc.data-v-55c54db0 {
+  color: dimgray;
+  font-weight: 600;
+  font-size: 110%;
+}
+.show-chart-btn.data-v-55c54db0 {
+  color: black;
+  font-weight: 600;
+  font-size: 100%;
+  text-decoration: underline;
+}
+.change-chart-btn.data-v-55c54db0 {
+  color: blue;
+  font-weight: 500;
+  font-size: 100%;
+  text-decoration: underline;
+}
+.toolbar.data-v-55c54db0 {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  z-index: 1;
+  height: 70rpx;
+  background-color: ghostwhite;
+  border: solid 1px gray;
+}
+

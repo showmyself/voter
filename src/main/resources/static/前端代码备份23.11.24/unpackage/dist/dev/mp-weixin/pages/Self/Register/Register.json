@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "my-nav-bar": "/components/my-nav-bar/my-nav-bar",
+    "my-error-info": "/components/my-error-info/my-error-info",
+    "my-countdown": "/components/my-countdown/my-countdown"
+  }
+}

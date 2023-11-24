@@ -1,0 +1,102 @@
+
+//自定义自己常用的全局样式：
+//一般页面内使用的公共样式都抽取出来，属于页面自己的样式就使用style
+
+//所有页面的根级样式
+.my-page-root{
+	font-size:25rpx;//页面内其他字体大小单位都使用%
+}
+
+//所有页面的根级的子级样式
+.my-page-root-child{
+	//使用条件编译，只有H5平台才生效
+	// #ifdef H5
+	width:80%;
+	margin: 0 auto;//使水平居中
+	// #endif
+}
+
+//唯一子元素在水平方向垂直方向上居中（若有多个子元素则不保证预期效果）（子元素是块、行内块、行内、字符都有效，但前提是只有一个子元素）
+.my-center-one {
+	  display:flex;
+	  justify-content:center;
+	  align-items:center
+}
+
+//唯一子元素在垂直方向居中
+.my-center-vertical-one{
+	  display:flex;
+	  align-items:center
+}
+
+//唯一子元素在水平方向居中
+.my-center-horizontal-one{
+	  display:flex;
+	  justify-content:center;
+}
+
+//块元素自身在水平方向居中，需要设定宽度才能看出来
+.my-at-center-horizontal-block {
+	margin: 0 auto;
+}
+
+//靠右一般使用float:right即可
+
+//解决 外边距重叠、高度坍塌 问题
+.my-bfc {
+	&::before {
+		content:'';//before和after默认增加的是行内元素
+		display:table;//此项能开启BFC，可以在父子元素之间不插入高度的情况下使得父子元素外边距不重叠，解决外边距折叠问题
+	}
+	&::after {
+		content:'';
+		display:table;//也添加此项，具体原因不明，可用作保险手段
+		clear:both//此项清除浮动影响，先让空内容以清除浮动影响的情况下占个位，那么后续元素就会从空内容的后面开始排布
+	}
+}
+
+//常用的flex布局
+.my-flex-usual {
+	  display:flex;
+	  flex-direction:row;
+	  flex-wrap:wrap
+}
+
+//若某子元素使用absolute定位，它将相对添加了下述样式的父元素开始定位
+.my-absolute-from {
+	position:relative
+}
+
+//利用阴影加边框
+.my-font-outline {
+	text-shadow:-1px 1px 0 #222,1px 1px 0 #222,1px -1px 0 #222,-1px -1px 0 #222;
+}
+
+//光标移进膨胀，对于uniapp貌似没用，因为无光标
+// .inflate:hover{
+//   transition: 0.2s;
+//   transform:scale(1.1);
+// }
+
+button{
+	background-color: slategray;
+	color:whitesmoke;
+	height: 80%;
+	// width: 80%;
+	font-size: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+a{
+	color:#3A2F0B;
+	font-size: 80%;
+	text-decoration: underline;
+}
+
+.mark{
+	// @extend .my-font-outline;
+	font-size: 80%;
+	color: #886A08;
+}

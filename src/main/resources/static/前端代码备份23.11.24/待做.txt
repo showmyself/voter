@@ -1,0 +1,12 @@
+
+待定增加：（以后再说，现在没必要）
+可以看到年龄和性别分布图
+帖子拥有者可以看到已投票的用户名
+
+目前运行在手机端有个问题，始终解决不了，以后再解决：
+比如
+<image v-if="post.picSrc" mode="aspectFit" style="max-width: 90%" :src="post.picSrc" @error="imageError"/>
+无法显示图片，如果把post.picSrc换成一个定死的网络地址图片可以显示，但换成定死的我个人服务器上的图片地址就没法显示了，原因不明
+
+
+

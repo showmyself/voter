@@ -1,0 +1,14 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "my-nav-bar": "/components/my-nav-bar/my-nav-bar",
+    "u-modal": "/uview-ui/components/u-modal/u-modal",
+    "my-option-show": "/components/my-option-show/my-option-show",
+    "u-popup": "/uview-ui/components/u-popup/u-popup",
+    "my-bar-chart": "/components/my-bar-chart/my-bar-chart",
+    "qiun-data-charts": "/uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts",
+    "my-empty": "/components/my-empty/my-empty",
+    "my-comment": "/components/my-comment/my-comment",
+    "my-pagination": "/components/my-pagination/my-pagination"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "my-nav-bar": "/components/my-nav-bar/my-nav-bar",
+    "u-avatar": "/uview-ui/components/u-avatar/u-avatar"
+  }
+}
